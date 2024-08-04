@@ -1,8 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
+
+// type emptyMap map[string]string
 
 func main(){
 	// fmt.Println("This is a","book")	
@@ -13,10 +13,28 @@ func main(){
 	// fmt.Println(test)
 	// writeMyFile("hello world\n")
 	// writeMyFile("abc\n")
-	var testString0 = string("hello world")
-	var testString1 = string(35)
-	var testString2 = string("35")
-	fmt.Println(testString0,testString1,testString2)
+	// var testString0 = string("hello world")
+	// var testString1 = string(35)
+	// var testString2 = string("35")
+	// fmt.Println(testString0,testString1,testString2)
+
+
+	// fmt.Println("emptyMap{}", emptyMap{})
+	// fmt.Println("emptyMap{}", emptyMap{}==nil)
+
+	// makeSlice := make([]int, 5)
+	// fmt.Println("makeSlice", makeSlice)
+
+	// var a int
+	// fmt.Println(a==0)
+	// fmt.Println(a==nil)
+	var something string
+	fmt.Println("Enter something")
+	fmt.Scanln(&something)
+	fmt.Println("Print something",something)
+
+
+
 	
 
 }

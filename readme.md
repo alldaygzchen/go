@@ -203,6 +203,7 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 
 ## Make
 
+- nill is declared but not assigned in the memory for reference type
 - reallocate memory for map and slice
 - since resize a slice recreate an array, we can pre allocate some space using make (tell go need a bigger array)
 - make([]string, 2, 5) // create an array with two empty slots and the array has capacity of 5
@@ -215,6 +216,42 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 
 - for key, value := range courseRatings {}
 - for index, value := range userNames {}
+
+# Chapter 8
+
+## using functions as value
+
+- not only as parameters but also as return value
+
+## anonymous functions
+
+- function without name
+- is not a function type, it is a value type
+
+## closure
+
+- create factory function (create function outputs and use outer scope parameters to lock in for future use)
+
+## recursion
+
+## variadic functions
+
+- if numbers... in a function parameter then it will create an slice in the background
+- if numbers... a value when calling a function then it will split slices
+
+# Chap10
+
+## concurrency & Goroutines
+
+- making progress on them without blocking each other.
+- the code after <- will not be executed after it is done
+- goroutine does not support return value
+- if use one channel with multiple goroutines, remember to close the last one e.g. close(doneChan)
+- multiple goroutines suggest to use list to collect all channels
+
+## defer
+
+- defer file.Close()
 
 # Overview
 
@@ -244,4 +281,81 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 - map[string]string{"Google": "https://google.com","Amazon Web Services": "https://aws.com",}
 ```
 
-##
+```
+type TestStruct struct {
+Field1 int
+Field2 string
+}
+type TestMap map[string]string
+
+type EmptyStruct struct{}
+type nameStruct struct {
+firstName string
+lastName string
+}
+
+type emptyMap map[string]string
+type nonEmptyMap map[string]string
+
+// nil is for reference type , we need to use make first
+
+// struct is a value type
+var s TestStruct
+fmt.Println("TestStruct", s)
+s2 := TestStruct{}
+fmt.Println("TestStruct{}", s2)
+fmt.Println("TestStruct{}", TestStruct{})
+
+// map is a reference type
+var m TestMap
+fmt.Println("TestMap", m)
+m2 := TestMap{}
+fmt.Println("TestMap{}", m2)
+fmt.Println("TestMap{}", TestMap{})
+m3 := make(TestMap)
+fmt.Println("make(TestMap)", m3)
+
+// named
+// error
+//fmt.Println("EmptyStruct", EmptyStruct)
+fmt.Println("EmptyStruct{}", EmptyStruct{})
+fmt.Println("nameStruct{}", nameStruct{})
+fmt.Println("nameStruct{}", nameStruct{
+firstName: "hello",
+lastName: "world",
+})
+// error
+// fmt.Println("emptyMap", emptyMap)
+fmt.Println("emptyMap{}", emptyMap{})
+fmt.Println("nonEmptyMap{}", nonEmptyMap{})
+fmt.Println("nonEmptyMap{}", nonEmptyMap{
+"firstName": "hello",
+"lastName": "world",
+})
+
+// anonymous
+fmt.Println("struct{}{}", struct{}{})
+fmt.Println("struct{}{}", struct {
+firstName string
+lastName string
+}{
+firstName: "hello",
+lastName: "world",
+})
+fmt.Println("map[string]int{}", map[string]string{})
+fmt.Println(map[string]string{
+"Google": "https://google.com",
+"Amazon Web Services": "https://aws.com",
+})
+
+// make
+
+makeMap := make(map[string]string)
+fmt.Println("makeMap", makeMap)
+makeMap["firstName"] = "Chen"
+fmt.Println("makeMap", makeMap)
+
+makeSlice := make([]int, 5)
+fmt.Println("makeSlice", makeSlice)
+
+```
