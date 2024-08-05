@@ -237,7 +237,7 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 ## variadic functions
 
 - if numbers... in a function parameter then it will create an slice in the background
-- if numbers... a value when calling a function then it will split slices
+- if numbers... a value when using a function then it will split slices to numbers
 
 # Chap10
 
@@ -252,6 +252,38 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 ## defer
 
 - defer file.Close()
+
+# Chap11
+
+- go get -u github.com/gin-gonic/gin
+- go get github.com/mattn/go-sqlite3
+- go get modernc.org/sqlite
+- \_ "github.com/mattn/go-sqlite3" will use under the hood but not directly
+- An example of gin
+- start from 169
+
+```
+package main
+
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	server :=gin.Default()
+	// fmt.Println("give me the type of server variable",reflect.TypeOf(server))
+	server.GET("/events", getEvents)
+	server.Run(":8080")
+}
+
+func getEvents(context *gin.Context) {
+	context.JSON(http.StatusOK, gin.H{"message": "Hello!"})
+}
+```
+
+- extensions: rest client
 
 # Overview
 
