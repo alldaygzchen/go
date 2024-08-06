@@ -260,7 +260,7 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 - go get modernc.org/sqlite
 - \_ "github.com/mattn/go-sqlite3" will use under the hood but not directly
 - An example of gin
-- start from 169
+- db.DB.Query [fetching], db.DB.Exec [manipulating]
 
 ```
 package main
