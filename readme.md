@@ -258,9 +258,12 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 - go get -u github.com/gin-gonic/gin
 - go get github.com/mattn/go-sqlite3
 - go get modernc.org/sqlite
+- go get -u golang.org/x/crypto
+- go get -u github.com/golang-jwt/jwt/v5
 - \_ "github.com/mattn/go-sqlite3" will use under the hood but not directly
 - An example of gin
 - db.DB.Query [fetching], db.DB.Exec [manipulating]
+- 186
 
 ```
 package main
