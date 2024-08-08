@@ -263,7 +263,7 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 - \_ "github.com/mattn/go-sqlite3" will use under the hood but not directly
 - An example of gin
 - db.DB.Query [fetching], db.DB.Exec [manipulating]
-- 186
+- 191
 
 ```
 package main

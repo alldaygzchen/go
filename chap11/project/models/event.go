@@ -2,7 +2,6 @@ package models
 
 import (
 	"chap11/project/db"
-	"fmt"
 	"time"
 )
 
@@ -12,7 +11,7 @@ type Event struct {
 	Description string    `binding:"required"`
 	Location    string    `binding:"required"`
 	DateTime    time.Time `binding:"required"`
-	UserID      int
+	UserID      int64
 }
 
 // var events = []Event{}
@@ -33,7 +32,7 @@ func (e *Event) Save() error {
 	}
 	id, err := result.LastInsertId()
 	e.ID = id
-	fmt.Println("Save struct",e)
+	// fmt.Println("Save struct",e)
 	return err
 }
 
