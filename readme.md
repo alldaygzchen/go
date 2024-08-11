@@ -177,6 +177,7 @@ func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) 
 - the following statement does not meet in interface: When calling a method with a pointer receiver, Go allows you to use either a value or a pointer, and Go will handle taking the address automatically if needed.
 - interface{} is equivalent to any
 - value.(type) can only be used in switch, use e.g. value.(int)
+- interface can be both a value or a reference type
 
 ## Generics
 
