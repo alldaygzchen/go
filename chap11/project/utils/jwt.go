@@ -2,7 +2,6 @@ package utils
 
 import (
 	"errors"
-	"fmt"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -20,7 +19,7 @@ func GenerateToken(email string, userId int64) (string, error) {
 
 
 func VerifyToken(token string) (int64,error) {
-	fmt.Println("token check",token)
+	// fmt.Println("token check",token)
 	parsedToken, err := jwt.Parse(token, func(token *jwt.Token) (interface{}, error) {
 		// fmt.Println("inner token check",token)
 		_, ok := token.Method.(*jwt.SigningMethodHMAC)
