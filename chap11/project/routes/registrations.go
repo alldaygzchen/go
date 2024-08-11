@@ -2,7 +2,6 @@ package routes
 
 import (
 	"chap11/project/models"
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -54,7 +53,6 @@ func cancelRegistration(context *gin.Context) {
 
 func getRegistrations(context *gin.Context){
 	registrations, err := models.GetRegistrations()
-	fmt.Println("registrations",registrations)
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not fetch events. Try again later."})
 		return
